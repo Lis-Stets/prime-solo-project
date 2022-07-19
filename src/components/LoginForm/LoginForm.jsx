@@ -2,6 +2,14 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {useSelector} from 'react-redux';
 
+//import components from MUI to style the registration form
+import { Typography } from '@mui/material'
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+
+
 function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -26,13 +34,15 @@ function LoginForm() {
 
   return (
     <form className="formPanel" onSubmit={login}>
-      <h2>Login</h2>
+      <Typography variant='h2' align="center">Login</Typography>
+
       {errors.loginMessage && (
         <h3 className="alert" role="alert">
           {errors.loginMessage}
         </h3>
       )}
-      <div>
+      <div align="center">
+        <br />
         <label htmlFor="username">
           Username:
           <input
@@ -44,7 +54,7 @@ function LoginForm() {
           />
         </label>
       </div>
-      <div>
+      <div align="center">
         <label htmlFor="password">
           Password:
           <input
@@ -56,7 +66,8 @@ function LoginForm() {
           />
         </label>
       </div>
-      <div>
+      <br />
+      <div align="center">
         <input className="btn" type="submit" name="submit" value="Log In" />
       </div>
     </form>
