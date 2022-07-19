@@ -23,6 +23,7 @@ import NEWTESTNEW from '../NEWTESTNEW/NEWTESTNEW';
 
 
 import './App.css';
+import ClosetBinView from '../ClosetBinView/ClosetBinView';
 
 function App() {
   const dispatch = useDispatch();
@@ -70,11 +71,13 @@ function App() {
             <InfoPage />
           </ProtectedRoute>
           
-          <Route
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
             exact
-            path="/NEWTESTNEW">
-            <NEWTESTNEW/>
-          </Route>
+            path="/closetBin"
+          >
+            <ClosetBinView />
+          </ProtectedRoute>
  
           <Route
             exact
