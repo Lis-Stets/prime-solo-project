@@ -4,13 +4,21 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import { useSelector } from 'react-redux';
 
+//import components from MUI to style the registration form
+import { Typography } from '@mui/material'
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+
+
 function Nav() {
   const user = useSelector((store) => store.user);
 
   return (
     <div className="nav">
       <Link to="/home">
-        <h2 className="nav-title">Roparoli</h2>
+        <Typography variant='h4' className="nav-title">Roparoli</Typography>
       </Link>
       <div>
         {/* If no user is logged in, show these links */}
