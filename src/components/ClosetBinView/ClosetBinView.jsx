@@ -11,19 +11,7 @@ import shortsIcon from '../../images/shorts_icon.png';
 //import MUI components from material UI
 import { colors, Grid } from '@mui/material'
 import Button from '@mui/material/Button'
-// import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-// //use createTheme to change theme colors
-// const theme = createTheme({
-//   palette: {
-//     primary: {
-//       main: '#F2D360',
-//     },
-//     secondary: {
-//       main: '#C5F8DE',
-//     },
-//   },
-// });
 
 //This component will display items from one of a user's closets or bins
 function ClosetBinView(props) {
