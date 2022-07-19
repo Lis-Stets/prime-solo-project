@@ -9,11 +9,11 @@ import shortsIcon from '../../images/shorts_icon.png';
 
 
 //import MUI components from material UI
-import { Grid } from '@mui/material'
+import { colors, Grid } from '@mui/material'
 import Button from '@mui/material/Button'
-// import { MuiThemeProvider, createTheme } from '@mui/material/styles';
+// import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-//use createTheme to change theme colors
+// //use createTheme to change theme colors
 // const theme = createTheme({
 //   palette: {
 //     primary: {
@@ -34,44 +34,47 @@ function ClosetBinView(props) {
 
   //the return is what is displayed to the user
   return (
-    //creates a grid to display image content
     <div> 
-      <h1> Gwen's Closet</h1>
-      <br />
-      <Button variant="contained" color="primary">Add Item</Button> <Button variant="contained" color="secondary">Edit</Button>
-      <br />
-      <Grid container display="flex" wrap="wrap" justify="center" spacing={2}>
-            <Grid item xs={4}>
-              <img src={shortShirtIcon} alt={'t-shirt'}/>
-              <h5>Short Sleeve Shirt</h5>
-              <h5>4T</h5>
-            </Grid>
-            <Grid item xs={4}>
-              <img src={skirtIcon} alt={'t-shirt'}/>
-              <h5>Teal Tutu</h5>
-              <h5>S</h5>
-            </Grid>
-            <Grid item xs={4}>
-              <img src={pantsIcon} alt={'t-shirt'}/>
-              <h5>Flower Print Pants</h5>
-              <h5>4T</h5>
-            </Grid>
-            <Grid item xs={4}>
-              <img src={overallsIcon} alt={'t-shirt'}/>
-              <h5>Overalls</h5>
-              <h5>5T</h5>
-            </Grid>
-            <Grid item xs={4}>
-              <img src={dressIcon} alt={'t-shirt'}/>
-              <h5>Polkadot Dress</h5>
-              <h5>4T</h5>
-            </Grid>
-            <Grid item xs={4}>
-              <img src={shortsIcon} alt={'t-shirt'}/>
-              <h5>Pink Shorts</h5>
-              <h5>4T</h5>
-            </Grid>
-      </Grid>
+      {/* MuiThemeProvider allows us to use the theme we created above */}
+        <h1 align="center"> Gwen's Closet</h1>
+
+        <div align="center">
+          <Button variant="contained" color="secondary" justify="center">Add Item</Button> <Button variant="contained" color="secondary">Edit</Button>
+        </div>
+
+        {/* creates a grid to display image content */}
+        <Grid container display="flex" wrap="wrap"  align="center" spacing={2} padding={5}>
+              <Grid item xs={4}>
+                <img src={shortShirtIcon} alt={'t-shirt'}/>
+                <h5>Short Sleeve Shirt</h5>
+                <h5>4T</h5>
+              </Grid>
+              <Grid item xs={4}>
+                <img src={skirtIcon} alt={'t-shirt'}/>
+                <h5>Teal Tutu</h5>
+                <h5>S</h5>
+              </Grid>
+              <Grid item xs={4}>
+                <img src={pantsIcon} alt={'t-shirt'}/>
+                <h5>Flower Print Pants</h5>
+                <h5>4T</h5>
+              </Grid>
+              <Grid item xs={4}>
+                <img src={overallsIcon} alt={'t-shirt'}/>
+                <h5>Overalls</h5>
+                <h5>5T</h5>
+              </Grid>
+              <Grid item xs={4}>
+                <img src={dressIcon} alt={'t-shirt'}/>
+                <h5>Polkadot Dress</h5>
+                <h5>4T</h5>
+              </Grid>
+              <Grid item xs={4}>
+                <img src={shortsIcon} alt={'t-shirt'}/>
+                <h5>Pink Shorts</h5>
+                <h5>4T</h5>
+              </Grid>
+        </Grid>
     </div>
   );
 }

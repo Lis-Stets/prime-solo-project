@@ -19,11 +19,25 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import NEWTESTNEW from '../NEWTESTNEW/NEWTESTNEW';
 
 
 import './App.css';
 import ClosetBinView from '../ClosetBinView/ClosetBinView';
+
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { colors } from '@mui/material';
+
+//use createTheme to change theme colors
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#F2D360',
+    },
+    secondary: {
+      main: '#5B8793',
+    },
+  },
+});
 
 function App() {
   const dispatch = useDispatch();
@@ -35,6 +49,7 @@ function App() {
   }, [dispatch]);
 
   return (
+    <ThemeProvider theme={theme}>
     <Router>
       <div>
         <Nav />
@@ -129,6 +144,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+    </ThemeProvider>
   );
 }
 
