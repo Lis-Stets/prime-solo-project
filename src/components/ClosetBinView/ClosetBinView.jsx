@@ -67,6 +67,4 @@ function ClosetBinView(props) {
   );
 }
 
-
-
 export default ClosetBinView;
