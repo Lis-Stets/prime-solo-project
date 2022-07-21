@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import {useSelector} from 'react-redux';
+import { useEffect } from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import shortShirtIcon from '../../images/short_sleeve_shirt_icon.png';
 import skirtIcon from '../../images/skirt_icon.png';
 import pantsIcon from '../../images/pants_icon.png';
@@ -25,6 +26,13 @@ function HomePage(props) {
   const [heading, setHeading] = useState('Functional Component');
   //allows us to use reducers from the store
   const user = useSelector((store) => store.user);
+  //allows us to send dispatches
+  const dispatch = useDispatch();
+
+  //sends a dispatch on page load to fetch the user's closets and bins
+  useEffect(() =>{
+    dispatch({ type: 'GET_CLOSET_BINS', payload: user.id });
+  }, []);
 
   //create a car to use in our MUI grid
   const card = (

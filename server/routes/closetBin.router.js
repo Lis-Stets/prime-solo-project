@@ -1,15 +1,13 @@
 const express = require('express');
-const {
-  rejectUnauthenticated,
-} = require('../modules/authentication-middleware');
+
 const pool = require('../modules/pool');
 
 const router = express.Router();
 
 //router that takes user id to fetch all closets and bins from the database
-router.get('/:id', rejectUnauthenticated, (req, res) => {
-  const query = `SELECT * FROM closet_bin WHERE user_id = 4`;
-  const values = [req.params.id]
+router.get('/', (req, res) => {
+  const query = `SELECT * FROM closet_bin WHERE user_id = $1`;
+  const values = [req.user.id]
   pool.query(query, values)
   .then( results =>{
     res.send( results.rows);

@@ -9,7 +9,7 @@ const passport = require('./strategies/user.strategy');
 
 // Route includes
 const userRouter = require('./routes/user.router');
-const closet_binRouter = require('./routes/closet_bin.router');
+const closetBinRouter = require('./routes/closetBin.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -22,9 +22,13 @@ app.use(sessionMiddleware);
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.get( '/test', (req, res) =>{
+  res.send('hello');
+})
+
 /* Routes */
 app.use('/api/user', userRouter);
-app.use('/api/user', closet_binRouter);
+app.use('/api/closetbin', closetBinRouter);
 
 // Serve static files
 app.use(express.static('build'));
