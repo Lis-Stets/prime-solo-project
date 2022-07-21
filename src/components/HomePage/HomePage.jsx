@@ -56,7 +56,7 @@ function HomePage(props) {
              </Grid>
       </Grid>  
        <div align="center">
-         <Button variant="contained" color="secondary" justify="center">Add Item</Button> <Button variant="contained" color="secondary">Edit</Button>
+         <Button variant="contained" color="secondary" justify="center">Add Closet or Bin</Button> 
        </div>
        <Grid container display="flex" wrap="wrap" justifyContent="center" spacing={2} padding={5}>
              <Grid item xs={10}>

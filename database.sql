@@ -27,3 +27,6 @@ CREATE TABLE "items" (
 
 --query to add a new bin or closet
 INSERT INTO closet_bin ( closet, name, user_id ) VALUES ( true, 'Gwen', 4 );
+
+--query to get all closets and bins for a specific user
+SELECT * FROM closet_bin WHERE user_id = 4;
