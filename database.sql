@@ -9,7 +9,7 @@ CREATE TABLE "user" (
     "password" VARCHAR (1000) NOT NULL
 );
 --use this query to create the closet-bin table
-CREATE TABLE "closet-bin" (
+CREATE TABLE "closet_bin" (
     "id" SERIAL PRIMARY KEY,
     "closet" BOOLEAN,
     "name" VARCHAR (80) NOT NULL,
@@ -22,5 +22,8 @@ CREATE TABLE "items" (
     "description" VARCHAR (50) NOT NULL,
     "size" VARCHAR (80) NOT NULL,
     "image" VARCHAR (150) NOT NULL,
-    "closet-bin_id" INTEGER
+    "closet_bin_id" INTEGER
 );
+
+--query to add a new bin or closet
+INSERT INTO closet_bin ( closet, name, user_id ) VALUES ( true, 'Gwen', 4 );
