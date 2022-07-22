@@ -10,11 +10,12 @@ function TemplateFunction(props) {
   const store = useSelector((store) => store);
   const [heading, setHeading] = useState('Functional Component');
 
-  return (
+  return(
     <div>
-      <h2>{heading}</h2>
+        <h2>TemplateFunction</h2>
+        <p>Props: {JSON.stringify( props ) }</p>
     </div>
-  );
+);
 }
 
 export default TemplateFunction;
