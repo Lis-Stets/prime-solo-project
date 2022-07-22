@@ -38,17 +38,17 @@ function HomePage(props) {
  //the return is what is displayed to the user
  return (
    <div> 
-      {closetBinReducer.length < 1 ?(
+      {closetBinReducer.length === 0 ?(
         <h1>loading</h1>
       ):(
         <div>
           <h1 align="center"> {user.username}'s Home</h1>
           <h3>{JSON.stringify(closetBinReducer)}</h3>
           <Grid container display="flex" wrap="wrap" justifyContent="center" spacing={2} padding={5}>
-            {closetBinReducer.map(closet => {
-              <Grid key={closet.id} item xs={4}>
-                  <ClosetCard closet={closet} />
-              </Grid>       
+            {closetBinReducer.map((closet) => {
+              return(
+                  <ClosetCard closet={closet}/>
+              );
             })}
           </Grid>  
           {/* creates a grid to display image content */}

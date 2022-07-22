@@ -1,4 +1,4 @@
-const closetBinReducer = (state = {}, action) => {
+const closetBinReducer = (state = [], action) => {
   switch (action.type) {
     case 'SET_CLOSET_BINS':
       return action.payload;

@@ -16,20 +16,21 @@ function ClosetCard({closet}) {
   const store = useSelector((store) => store);
   const [heading, setHeading] = useState('Functional Component');
 
-// const card = (
-//   <React.Fragment>
-//     <CardContent>
-//       <Typography variant="h5" align='center'>
-//         {closet.name}'s Closet
-//       </Typography>
-//     </CardContent>
-//   </React.Fragment>
-// );
+const card = (
+  <React.Fragment>
+    <CardContent>
+      <Typography variant="h5" align='center'>
+        {closet.name}'s Closet
+      </Typography>
+    </CardContent>
+  </React.Fragment>
+);
 
   return(
     <div>
-      <p>TEST CARD</p>
-      {/* <Card variant="outlined">{card}</Card> */}
+      <Grid item xs={4}>
+        <Card variant="outlined">{card}</Card>  
+      </Grid> 
     </div>
 );
 }
