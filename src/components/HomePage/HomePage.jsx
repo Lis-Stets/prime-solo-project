@@ -46,6 +46,7 @@ function HomePage(props) {
       ):(
         <div>
           <h1 align="center"> {user.username}'s Home</h1>
+          <br />
           <Grid container display={"flex"} wrap={"wrap"} justifyContent={"space-evenly"} alignContent={"center"} spacing={5} padding={2}>
             {closetReducer.map((closet) => {
               return(
@@ -63,21 +64,6 @@ function HomePage(props) {
                   <BinCard bin={bin}/>
               );
             })}
-                {/* <Grid item xs={10}>
-                    <Card variant="outlined">{card}</Card>
-                </Grid>
-                <Grid item xs={10}>
-                    <Card variant="outlined">{card}</Card>
-                </Grid>
-                <Grid item xs={10}>
-                    <Card variant="outlined">{card}</Card>
-                </Grid>
-                <Grid item xs={10}>
-                    <Card variant="outlined">{card}</Card>
-                </Grid>
-                <Grid item xs={10}>
-                    <Card variant="outlined">{card}</Card>
-                </Grid> */}
           </Grid>
         </div>
       )
