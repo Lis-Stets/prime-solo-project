@@ -10,6 +10,7 @@ import shortsIcon from '../../images/shorts_icon.png';
 import userReducer from '../../redux/reducers/user.reducer';
 import ClosetCard from '../ClosetCard/ClosetCard';
 import BinCard from '../BinCard/BinCard';
+import AddClosetBinForm from '../AddClosetBinForm/AddClosetBinForm';
 
 //import MUI components from material UI
 import { colors, Grid } from '@mui/material'
@@ -55,9 +56,7 @@ function HomePage(props) {
             })}
           </Grid>  
           {/* creates a grid to display image content */}
-          <div align="center">
-            <Button variant="contained" color="secondary" justify="center">Add Closet or Bin</Button> 
-          </div>
+          <AddClosetBinForm/>
           <Grid container display={"flex"} wrap={"wrap"} justifyContent={"space-evenly"} alignContent={"center"} spacing={2} padding={5}>
             {binReducer.map((bin) => {
               return(
