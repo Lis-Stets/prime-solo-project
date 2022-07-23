@@ -6,14 +6,14 @@ const router = express.Router();
 
 //router that takes user id to fetch all closets and bins from the database
 router.get('/', (req, res) => {
-  const query = `SELECT * FROM closet_bin WHERE user_id = $1`;
-  const values = [req.user.id]
+  const query = `SELECT * FROM closet_bin WHERE user_id = $1 AND closet = $2;`;
+  const values = [req.user.id, true]
   pool.query(query, values)
   .then( results =>{
     res.send( results.rows);
   })
   .catch( err =>{
-    console.log( 'error in closets/bins GET route', err);
+    console.log( 'error in closet GET route', err);
     res.sendStatus(500)
   })
 })//end genres GET

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import closetBinReducer from '../../redux/reducers/closetBin.reducer';
+import closetReducer from '../../redux/reducers/closet.reducer';
 
 //import MUI components from material UI
 import { colors, Grid } from '@mui/material'
@@ -19,7 +19,7 @@ function ClosetCard({closet}) {
 const card = (
   <React.Fragment>
     <CardContent>
-      <Typography variant="h5" align='center'>
+      <Typography variant="h6" align='center'>
         {closet.name}'s Closet
       </Typography>
     </CardContent>
@@ -28,7 +28,7 @@ const card = (
 
   return(
     <div>
-      <Grid item xs={4}>
+      <Grid item xs={8}>
         <Card variant="outlined">{card}</Card>  
       </Grid> 
     </div>

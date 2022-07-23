@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 import errors from './errors.reducer';
 import user from './user.reducer';
-import closetBinReducer from './closetBin.reducer';
+import closetReducer from './closet.reducer';
+import binReducer from './bin.reducer';
+
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -11,7 +13,8 @@ import closetBinReducer from './closetBin.reducer';
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user, // will have an id and username if someone is logged in
-  closetBinReducer,
+  closetReducer,
+  binReducer,
 });
 
 export default rootReducer;
