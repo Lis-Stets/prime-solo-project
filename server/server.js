@@ -9,6 +9,9 @@ const passport = require('./strategies/user.strategy');
 
 // Route includes
 const userRouter = require('./routes/user.router');
+const closetRouter = require('./routes/closet.router');
+const binRouter = require('./routes/bin.router');
+const itemsRouter = require('./routes/items.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -21,8 +24,15 @@ app.use(sessionMiddleware);
 app.use(passport.initialize());
 app.use(passport.session());
 
+// app.get( '/test', (req, res) =>{
+//   res.send('hello');
+// })
+
 /* Routes */
 app.use('/api/user', userRouter);
+app.use('/api/closet', closetRouter);
+app.use('/api/bin', binRouter);
+app.use('/api/items', itemsRouter);
 
 // Serve static files
 app.use(express.static('build'));
