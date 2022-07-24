@@ -42,12 +42,15 @@ function HomePage(props) {
  //the return is what is displayed to the user
  return (
    <div> 
+    {/* use a ternary operator so that a loading placeholder displays while the on page load get calls run */}
       {closetReducer.length === 0 ?(
         <h1>loading</h1>
       ):(
         <div>
+          {/* display the logged in user's name */}
           <h1 align="center"> {user.username}'s Home</h1>
           <br />
+          {/* display the closets for the logged in user once they are fetched from the database  */}
           <Grid container display={"flex"} wrap={"wrap"} justifyContent={"space-evenly"} alignContent={"center"} spacing={5} padding={2}>
             {closetReducer.map((closet) => {
               return(
@@ -55,8 +58,9 @@ function HomePage(props) {
               );
             })}
           </Grid>  
-          {/* creates a grid to display image content */}
+          {/*  */}
           <AddClosetBinForm/>
+          {/* display the closets for the logged in user once they are fetched from the database  */}
           <Grid container display={"flex"} wrap={"wrap"} justifyContent={"space-evenly"} alignContent={"center"} spacing={2} padding={5}>
             {binReducer.map((bin) => {
               return(

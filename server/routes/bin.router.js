@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 })//end genres GET
 
 /**
- * POST route template
+ * FOR ADD BIN POST ROUTE SEE CLOSET.ROUTER
  */
 router.post('/', (req, res) => {
   // POST route code here

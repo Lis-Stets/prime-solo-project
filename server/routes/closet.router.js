@@ -6,9 +6,9 @@ const router = express.Router();
 
 //router that takes user id to fetch all closets and bins from the database
 router.get('/', (req, res) => {
-  const query = `SELECT * FROM closet_bin WHERE user_id = $1 AND closet = $2;`;
+  const queryString = `SELECT * FROM closet_bin WHERE user_id = $1 AND closet = $2;`;
   const values = [req.user.id, true]
-  pool.query(query, values)
+  pool.query(queryString, values)
   .then( results =>{
     res.send( results.rows);
   })
@@ -21,8 +21,16 @@ router.get('/', (req, res) => {
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
-  // POST route code here
+router.post('/add', (req, res) => {
+  const queryString = `INSERT INTO closet_bin ( closet, name, user_id ) VALUES ( $1, $2, $3 )`;
+  const values = [req.body.closet, req.body.name, req.user.id]
+
+  pool.query(queryString, values)
+    .then(() => res.sendStatus(201))
+    .catch((err) => {
+      console.log('Error in Closet POST route', err);
+      res.sendStatus(500);
+    });
 });
 
 module.exports = router;
