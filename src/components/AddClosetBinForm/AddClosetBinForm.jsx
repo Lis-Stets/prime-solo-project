@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import  Dialog from '@mui/material/Dialog';
 import  DialogActions from '@mui/material/DialogActions';
-import DalogContent from '@mui/material/DialogContent';
+import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -72,7 +72,7 @@ function AddClosetBinForm(props) {
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Add a Closet or Bin</DialogTitle>
         <br />
-        <DalogContent>
+        <DialogContent>
           <FormControl fullWidth>
             <InputLabel id="closet-or-bin-label">Closet or Bin?</InputLabel>
             <Select
@@ -97,7 +97,7 @@ function AddClosetBinForm(props) {
             onChange={handleChangeName}
           />
           </FormControl>
-        </DalogContent>
+        </DialogContent>
         <DialogActions>
           <Button onClick={addClosetBin}>Create</Button>
         </DialogActions>
