@@ -21,5 +21,6 @@ export default function* rootSaga() {
     getClosetSaga(),
     getBinSaga(),
     addClosetBinSaga(),
+    getItemsSaga(),
   ]);
 }
