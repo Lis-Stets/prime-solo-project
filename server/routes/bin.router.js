@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
     console.log( 'error in closet GET route', err);
     res.sendStatus(500)
   })
-})//end genres GET
+})//end bin GET
 
 /**
  * FOR ADD BIN POST ROUTE SEE CLOSET.ROUTER
