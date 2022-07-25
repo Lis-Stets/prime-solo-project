@@ -43,9 +43,9 @@ function HomePage(props) {
  return (
    <div> 
     {/* use a ternary operator so that a loading placeholder displays while the on page load get calls run */}
-      {closetReducer.length === 0 ?(
+      {/* {closetReducer.length === 0 ?(
         <h1>loading</h1>
-      ):(
+      ):( */}
         <div>
           {/* display the logged in user's name */}
           <h1 align="center"> {user.username}'s Home</h1>
@@ -69,8 +69,8 @@ function HomePage(props) {
             })}
           </Grid>
         </div>
-      )
-      }
+      {/* )
+      } */}
    </div>
  );
 }
