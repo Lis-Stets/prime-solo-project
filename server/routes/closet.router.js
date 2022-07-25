@@ -22,8 +22,9 @@ router.get('/', (req, res) => {
  * POST route template
  */
 router.post('/add', (req, res) => {
+  console.log(req.body);
   const queryString = `INSERT INTO closet_bin ( closet, name, user_id ) VALUES ( $1, $2, $3 )`;
-  const values = [req.body.closet, req.body.name, req.user.id]
+  const values = [req.body.addClosetBinReducer, req.body.name, req.user.id]
 
   pool.query(queryString, values)
     .then(() => res.sendStatus(201))

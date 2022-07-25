@@ -15,14 +15,14 @@ import Select from '@mui/material/Select';
 
 function AddClosetBinForm(props) {
 
-  const store = useSelector((store) => store);
+  const addClosetBinReducer = useSelector((store) => store.addClosetBinReducer);
   const dispatch = useDispatch();
 
   //hooks hold the states for change and click events
-  const [open, setOpen] = React.useState(false);
-  const [closet, setCloset] = React.useState(null);
-  const [name, setName] = React.useState('');
-  const [closetBinType, setClosetBinType] = React.useState('');
+  const [open, setOpen] = useState(false);
+  const [closet, setCloset] = useState(null);
+  const [name, setName] = useState('');
+
 
   //functions to handle change and click events
   const handleChangeName = (event) => {
@@ -37,30 +37,25 @@ function AddClosetBinForm(props) {
     setOpen(true);
   };
 
-  const handleSelect = (event) => {
-    setClosetBinType(event.target.value);
+
+
+  //check inputs and send dispatch to addClosetBinSaga
+  const setClosetBin = (event) =>{
+    const closetOrBin = event.target.value;
+    console.log( 'closetOrBin is set to:', closetOrBin );
+    dispatch({
+      type: 'CLOSET_OR_BIN', payload: {closetOrBin},
+    });
   };
 
-  const closetBinSet = () => {
-    if(closetBinType === 'Closet'){
-      setCloset(true)
-    } 
-    else if(closetBinType === 'Bin'){
-      setCloset(false)
-    }
-  };
-
-  //create object to send with dispatch to addClosetBinSaga
-  const addClosetBin = () =>{
-    closetBinSet();
+  const handleCreate = (event) =>{
     // closet === null ||
     // name.length === 0
-    //   ? alert('Please select closet or bin and add a name')
-      // :
-       dispatch({
-          type: 'ADD_CLOSET_BIN', payload: { closet, name },
-      }) &
-      console.log( 'new closet or bin:', {closet, name}) &
+    //   ? alert('Please select closet or bin and add a name.')
+    // :
+    dispatch({
+        type: 'ADD_CLOSET_BIN', payload: {addClosetBinReducer, name},
+      });
       setOpen(false);
   };
 
@@ -78,9 +73,9 @@ function AddClosetBinForm(props) {
             <Select
               labelId="closet-or-bin-label"
               id="closet-or-bin"
-              value={closetBinType}
+              value={''}
               label="Closet or Bin?"
-              onChange={handleSelect}
+              onChange={setClosetBin}
               >
               <MenuItem value={'Closet'}>Closet</MenuItem>
               <MenuItem value={'Bin'}>Bin</MenuItem>
@@ -99,7 +94,7 @@ function AddClosetBinForm(props) {
           </FormControl>
         </DialogContent>
         <DialogActions>
-          <Button onClick={addClosetBin}>Create</Button>
+          <Button onClick={handleCreate}>Create</Button>
         </DialogActions>
       </Dialog>
     </div>
