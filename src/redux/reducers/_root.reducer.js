@@ -3,6 +3,7 @@ import errors from './errors.reducer';
 import user from './user.reducer';
 import closetReducer from './closet.reducer';
 import binReducer from './bin.reducer';
+import addClosetBinReducer from './addClosetBin.reducer';
 import itemsReducer from './items.reducer';
 
 // rootReducer is the primary reducer for our entire project
@@ -14,6 +15,7 @@ import itemsReducer from './items.reducer';
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user, // will have an id and username if someone is logged in
+  addClosetBinReducer, //will hold the type to add selected by the user
   closetReducer, //will hold the closets of the logged in user to be displayed
   binReducer, //will hold the bins of the logged in user to be displayed
   itemsReducer, //will hold all items of the closet or bin clicked on by the user.

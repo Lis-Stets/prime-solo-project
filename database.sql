@@ -50,6 +50,5 @@ INSERT INTO items ( description, size, image, closet_bin_id ) VALUES ( 'Overalls
 INSERT INTO items ( description, size, image, closet_bin_id ) VALUES ( 'Polkadot Dress', '4T', '../../images/dress_icon.png', 1 );
 INSERT INTO items ( description, size, image, closet_bin_id ) VALUES ( 'Pink Shorts', '4T', '../../images/shorts_icon.png', 1 );
 
---query to get all items from one of a user's bins or closets
-SELECT * FROM items WHERE closet_bin_id = 1;
-
+--query to updat closet or bin name
+UPDATE closet_bin SET name='Imelda' WHERE id = 34;
