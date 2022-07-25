@@ -5,6 +5,7 @@ import userSaga from './user.saga';
 import getClosetSaga from './getCloset.saga';
 import getBinSaga from './getBin.saga';
 import addClosetBinSaga from './addClosetBin.saga';
+import getItemsSaga from './getItems.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -21,5 +22,6 @@ export default function* rootSaga() {
     getClosetSaga(),
     getBinSaga(),
     addClosetBinSaga(),
+    getItemsSaga(),
   ]);
 }
