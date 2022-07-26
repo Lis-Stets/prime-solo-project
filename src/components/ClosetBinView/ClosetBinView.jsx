@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 //import useParams to get id of bin to display 
 import { useParams } from 'react-router-dom';
+//import components to be displayed here
+import ItemCard from '../ItemCard/ItemCard';
 
 import shortShirtIcon from '../../images/short_sleeve_shirt_icon.png';
 import skirtIcon from '../../images/skirt_icon.png';
@@ -15,13 +17,16 @@ import itemsReducer from '../../redux/reducers/items.reducer';
 //import MUI components from material UI
 import { colors, Grid } from '@mui/material'
 import Button from '@mui/material/Button'
-
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 
 //This component will display items from one of a user's closets or bins
 function ClosetBinView(props) {
   //allows us to use reducers from the store
   const itemsReducer = useSelector((store) => store.itemsReducer);
+  //allows us to send dispatches
   const dispatch = useDispatch();
 
   //hooks
@@ -37,22 +42,22 @@ function ClosetBinView(props) {
   return (
     <div> 
       {JSON.stringify(itemsReducer)}
-      {/* MuiThemeProvider allows us to use the theme we created above */}
-        {/* <Typography variant='h3' align='center'>Gwen's Closet</Typography> */}
+        <Typography variant='h3' align='center'>name</Typography>
         <br />
         <div align="center">
           <Button variant="contained" color="secondary" justify="center">Add Item</Button> <Button variant="contained" color="secondary">Edit</Button>
         </div>
-        {/* display the items for the user's closet or bin once they are fetched from the database  */}
-        {/* <Grid container display={"flex"} wrap={"wrap"} justifyContent={"space-evenly"} alignContent={"center"} spacing={5} padding={2}>
-            {itemsReducer.map((closet) => {
+        <br />
+        <br />
+        {/*  display the items for the user's closet or bin once they are fetched from the database  */}
+        <Grid container display={"flex"} wrap={"wrap"} justifyContent={"space-evenly"} alignContent={"center"} xs= {12} spacing={5} padding={2}>
+            {itemsReducer.map((item) => {
               return(
-                  <ClosetCard closet={closet}/>
+                  <ItemCard item={item}/>
               );
             })}
-        </Grid>   */}
+        </Grid>  
 
-        {/* creates a grid to display image content */}
         {/* <Grid container display="flex" wrap="wrap"  align="center" spacing={2} padding={5}>
               <Grid item xs={4}>
                 <img src={shortShirtIcon} alt={'t-shirt'}/>

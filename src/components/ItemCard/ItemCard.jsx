@@ -23,17 +23,17 @@ function ItemCard({item}) {
         <Typography variant="p" align='center'>
           {item.description}
         </Typography>
-        <Typography variant="p" align='center'>
+        <Typography variant="h6" align='center'>
           {item.size}
         </Typography>
-        <Button></Button>
+        <Button variant="outlined" color='secondary'>move</Button><Button variant= 'outlined' color='secondary'>delete</Button>
       </CardContent>
     </React.Fragment>
   );
 
   return(
     <div>
-      <Grid item xs={12}>
+      <Grid item xs={8}>
           <Card variant="outlined">{card}</Card>  
       </Grid> 
     </div>
