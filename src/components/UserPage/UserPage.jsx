@@ -9,19 +9,6 @@ function UserPage() {
   const user = useSelector((store) => store.user);
   return (
     <div className="container">
-      {/* 
-      
-      FOR TESTING PURPOSES ONLY
-      
-      */}
-      
-      <TESTClosetBinClickTEST/>
-
-      {/* 
-      
-      END TEST SEGMENT
-
-      */}
       <p>User ID is: {user.id}</p>
       <HomePage/>
     </div>

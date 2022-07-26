@@ -3,6 +3,7 @@ import { put, takeEvery } from 'redux-saga/effects';
 
 // this saga will send the id of the closet or bin
 function* getItems(action) {
+  console.log( 'IN SAGA GET ITEMS:', action.payload);
   try {
     const response = yield axios.get(`/api/items/${action.payload}`);
     console.log( 'in GET items saga', response.data )

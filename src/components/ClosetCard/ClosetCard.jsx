@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+//import redux to access the store
 import {useDispatch, useSelector} from 'react-redux';
+//import Link to allow us to click the card
+import { Link } from 'react-router-dom';
 import closetReducer from '../../redux/reducers/closet.reducer';
 
 //import MUI components from material UI
@@ -11,25 +14,28 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 
 function ClosetCard({closet}) {
-  //hooks
   //allows us to use reducers from the store
   const store = useSelector((store) => store);
+  //hooks
   const [heading, setHeading] = useState('Functional Component');
 
-const card = (
-  <React.Fragment>
-    <CardContent>
-      <Typography variant="h6" align='center'>
-        {closet.name}'s Closet
-      </Typography>
-    </CardContent>
-  </React.Fragment>
-);
+  const card = (
+    <React.Fragment>
+      <CardContent>
+        <Typography variant="h6" align='center'>
+          {closet.name}'s Closet
+        </Typography>
+        <Button></Button>
+      </CardContent>
+    </React.Fragment>
+  );
 
   return(
     <div>
-      <Grid item xs={8}>
-        <Card variant="outlined">{card}</Card>  
+      <Grid item xs={12}>
+        <Link to={`/closetBin/${closet.id}`}>
+          <Card variant="outlined">{card}</Card>  
+        </Link>
       </Grid> 
     </div>
 );
