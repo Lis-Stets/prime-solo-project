@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+//import useHistory to move between component pages
+import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
+//images imported to test
 import shortShirtIcon from '../../images/short_sleeve_shirt_icon.png';
 import skirtIcon from '../../images/skirt_icon.png';
 import pantsIcon from '../../images/pants_icon.png';
@@ -39,6 +44,17 @@ function HomePage(props) {
     dispatch({ type: 'GET_BINS', payload: user.id });
   }, []);
 
+  // const details = (id) => {
+  //   history.push(`/closetBin/${id}`)
+  // }
+
+  // const tester = () => {
+  //   console.log( 'hello');
+  // }
+  
+  // const getItems = (closetBin) =>{
+  //   console.log('in getItems closetBin is:', closetBin);
+  // }
  //the return is what is displayed to the user
  return (
    <div> 
@@ -64,7 +80,11 @@ function HomePage(props) {
           <Grid container display={"flex"} wrap={"wrap"} justifyContent={"space-evenly"} alignContent={"center"} spacing={2} padding={5}>
             {binReducer.map((bin) => {
               return(
-                  <BinCard bin={bin}/>
+                  <div>
+                    {/* <Link to={`/closetBin/:id`}>
+                    </Link> */}
+                    <BinCard bin={bin}/>
+                  </div>
               );
             })}
           </Grid>

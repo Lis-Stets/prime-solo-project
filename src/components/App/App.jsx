@@ -88,7 +88,7 @@ function App() {
           
           <ProtectedRoute
             exact
-            path="/closetBin"
+            path="/closetBin/:id"
           >
             <ClosetBinView />
           </ProtectedRoute>

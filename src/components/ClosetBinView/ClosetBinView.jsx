@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
+//import useParams to get id of bin to display 
+import { useParams } from 'react-router-dom';
+
 import shortShirtIcon from '../../images/short_sleeve_shirt_icon.png';
 import skirtIcon from '../../images/skirt_icon.png';
 import pantsIcon from '../../images/pants_icon.png';
@@ -8,7 +11,6 @@ import overallsIcon from '../../images/overalls_icon.png';
 import dressIcon from '../../images/dress_icon.png';
 import shortsIcon from '../../images/shorts_icon.png';
 import itemsReducer from '../../redux/reducers/items.reducer';
-
 
 //import MUI components from material UI
 import { colors, Grid } from '@mui/material'
@@ -24,21 +26,19 @@ function ClosetBinView(props) {
 
   //hooks
   const [heading, setHeading] = useState('Functional Component');
+  let { id } = useParams();
 
-  //-----------dispatch needs to be put into the on click for the ClosetCard and Bin Card components-----------//
-  const testId = 1
-  //sends a dispatch on page load to fetch the user's items
   useEffect(() =>{
-    dispatch({ type: 'GET_ITEMS', payload: testId});
+    console.log( 'WHAT IS IT:', id);
+    dispatch({ type: 'GET_ITEMS', payload: id});
   }, []);
-  //-----------dispatch needs to be put into the on click for the ClosetCard and Bin Card components-----------//
-
+  
   //the return is what is displayed to the user
   return (
     <div> 
       {JSON.stringify(itemsReducer)}
       {/* MuiThemeProvider allows us to use the theme we created above */}
-        <Typography variant='h3' align='center'>Gwen's Closet</Typography>
+        {/* <Typography variant='h3' align='center'>Gwen's Closet</Typography> */}
         <br />
         <div align="center">
           <Button variant="contained" color="secondary" justify="center">Add Item</Button> <Button variant="contained" color="secondary">Edit</Button>
@@ -53,7 +53,7 @@ function ClosetBinView(props) {
         </Grid>   */}
 
         {/* creates a grid to display image content */}
-        <Grid container display="flex" wrap="wrap"  align="center" spacing={2} padding={5}>
+        {/* <Grid container display="flex" wrap="wrap"  align="center" spacing={2} padding={5}>
               <Grid item xs={4}>
                 <img src={shortShirtIcon} alt={'t-shirt'}/>
                 <h5>Short Sleeve Shirt</h5>
@@ -84,7 +84,7 @@ function ClosetBinView(props) {
                 <h5>Pink Shorts</h5>
                 <h5>4T</h5>
               </Grid>
-        </Grid>
+        </Grid> */}
     </div>
   );
 }
