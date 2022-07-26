@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 //import redux to access the store
 import {useDispatch, useSelector} from 'react-redux';
+//import Link to allow us to click the card
 import { Link } from 'react-router-dom';
 import closetReducer from '../../redux/reducers/closet.reducer';
 

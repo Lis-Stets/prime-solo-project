@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 //import redux to access the store
 import {useDispatch, useSelector} from 'react-redux';
-//import useHistory to move between component pages
-import { useHistory } from 'react-router-dom';
+//import Link to allow us to click the card
+import { Link } from 'react-router-dom';
 import closetReducer from '../../redux/reducers/closet.reducer';
-
 
 //import MUI components from material UI
 import { colors, Grid } from '@mui/material'
@@ -15,8 +14,6 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 
 function ClosetCard({closet}) {
-  //allows us to use history.push to switch our page
-  const history = useHistory();
   //allows us to use reducers from the store
   const store = useSelector((store) => store);
   //hooks
@@ -28,18 +25,17 @@ function ClosetCard({closet}) {
         <Typography variant="h6" align='center'>
           {closet.name}'s Closet
         </Typography>
+        <Button></Button>
       </CardContent>
     </React.Fragment>
   );
 
-  const handleClick = () => {
-    history.push( '/closetBin');
-  }
-
   return(
     <div>
-      <Grid item xs={8}>
-        <Card onClick={handleClick} variant="outlined">{card}</Card>  
+      <Grid item xs={12}>
+        <Link to={`/closetBin/${closet.id}`}>
+          <Card variant="outlined">{card}</Card>  
+        </Link>
       </Grid> 
     </div>
 );
