@@ -47,6 +47,7 @@ router.get('/select/:id', (req, res) => {
   })
 })//end select GET
 
+//----PostRoutes----//
 //POST route to add a new closet or bin
 router.post('/add', (req, res) => {
   console.log(req.body);
@@ -59,7 +60,7 @@ router.post('/add', (req, res) => {
       console.log('Error in Closet POST route', err);
       res.sendStatus(500);
     });
-});// end add closet or bin POST
+})// end add closet or bin POST
 
 
 // PUT Route to update name for a closet or bin
@@ -73,6 +74,6 @@ router.put('/:id', (req, res) => {
     console.log('Error in Closet.router POST route', err);
     res.sendStatus(500);
   });
-}); // end update closet bin name PUT Route
+}) // end update closet bin name PUT Route
 
 module.exports = router;

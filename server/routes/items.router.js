@@ -18,17 +18,16 @@ router.get('/:id', (req, res) => {
   })
 })//end items GET
 
-
-router.post('/add', (req, res) => {
-  // const queryString = `INSERT INTO closet_bin ( closet, name, user_id ) VALUES ( $1, $2, $3 )`;
-  // const values = [req.body.closet, req.body.name, req.user.id]
-
-  // pool.query(queryString, values)
-  //   .then(() => res.sendStatus(201))
-  //   .catch((err) => {
-  //     console.log('Error in Closet POST route', err);
-  //     res.sendStatus(500);
-  //   });
-});
+//POST route to add a new item to a bin
+router.post('/add/:id', (req, res) => {
+  const queryString = `INSERT INTO items ( description, size, image, closet_bin_id ) VALUES ( $1, $2, $3, $4 ) `;
+  const values = [req.body.description, req.body.size, req.body.image, req.params.id]
+  pool.query(queryString, values)
+    .then(() => res.sendStatus(201))
+    .catch((err) => {
+      console.log('Error in Items POST route', err);
+      res.sendStatus(500);
+    });
+})//end items POST
 
 module.exports = router;
