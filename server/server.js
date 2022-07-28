@@ -10,7 +10,6 @@ const passport = require('./strategies/user.strategy');
 // Route includes
 const userRouter = require('./routes/user.router');
 const closetBinRouter = require('./routes/closet.bin.router');
-const binRouter = require('./routes/bin.router');
 const itemsRouter = require('./routes/items.router');
 
 // Body parser middleware
@@ -31,7 +30,6 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/user', userRouter);
 app.use('/api/closetbin', closetBinRouter);
-// app.use('/api/bin', binRouter);
 app.use('/api/items', itemsRouter);
 
 // Serve static files

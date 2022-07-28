@@ -33,7 +33,19 @@ router.get('/bin', (req, res) => {
   })
 })//end bin GET
 
-
+//router to get all closets and bins except the one the user is viewing
+router.get('/select/:id', (req, res) => {
+  const query = `SELECT * FROM closet_bin WHERE user_id = $1 EXCEPT SELECT * FROM closet_bin WHERE id = $2`;
+  const values = [req.user.id, req.params.id]
+  pool.query(query, values)
+  .then( results =>{
+    res.send( results.rows);
+  })
+  .catch( err =>{
+    console.log( 'error in select GET route', err);
+    res.sendStatus(500)
+  })
+})//end select GET
 
 //POST route to add a new closet or bin
 router.post('/add', (req, res) => {
