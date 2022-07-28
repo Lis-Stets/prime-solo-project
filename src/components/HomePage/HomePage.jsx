@@ -70,8 +70,6 @@ function HomePage(props) {
             {binReducer.map((bin) => {
               return(
                   <div>
-                    {/* <Link to={`/closetBin/:id`}>
-                    </Link> */}
                     <BinCard bin={bin}/>
                   </div>
               );

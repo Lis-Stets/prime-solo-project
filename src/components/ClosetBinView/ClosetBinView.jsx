@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 //import components to be displayed here
 import ItemCard from '../ItemCard/ItemCard';
 
+
 import shortShirtIcon from '../../images/short_sleeve_shirt_icon.png';
 import skirtIcon from '../../images/skirt_icon.png';
 import pantsIcon from '../../images/pants_icon.png';
@@ -41,11 +42,10 @@ function ClosetBinView(props) {
   //the return is what is displayed to the user
   return (
     <div> 
-      {JSON.stringify(itemsReducer)}
         <Typography variant='h3' align='center'>name</Typography>
         <br />
         <div align="center">
-          <Button variant="contained" color="secondary" justify="center">Add Item</Button> <Button variant="contained" color="secondary">Edit</Button>
+          <Button variant="contained" color="secondary" justify="center">Add Item</Button> 
         </div>
         <br />
         <br />
@@ -57,39 +57,6 @@ function ClosetBinView(props) {
               );
             })}
         </Grid>  
-
-        {/* <Grid container display="flex" wrap="wrap"  align="center" spacing={2} padding={5}>
-              <Grid item xs={4}>
-                <img src={shortShirtIcon} alt={'t-shirt'}/>
-                <h5>Short Sleeve Shirt</h5>
-                <h5>4T</h5>
-              </Grid>
-              <Grid item xs={4}>
-                <img src={skirtIcon} alt={'t-shirt'}/>
-                <h5>Teal Tutu</h5>
-                <h5>S</h5>
-              </Grid>
-              <Grid item xs={4}>
-                <img src={pantsIcon} alt={'t-shirt'}/>
-                <h5>Flower Print Pants</h5>
-                <h5>4T</h5>
-              </Grid>
-              <Grid item xs={4}>
-                <img src={overallsIcon} alt={'t-shirt'}/>
-                <h5>Overalls</h5>
-                <h5>5T</h5>
-              </Grid>
-              <Grid item xs={4}>
-                <img src={dressIcon} alt={'t-shirt'}/>
-                <h5>Polkadot Dress</h5>
-                <h5>4T</h5>
-              </Grid>
-              <Grid item xs={4}>
-                <img src={shortsIcon} alt={'t-shirt'}/>
-                <h5>Pink Shorts</h5>
-                <h5>4T</h5>
-              </Grid>
-        </Grid> */}
     </div>
   );
 }
