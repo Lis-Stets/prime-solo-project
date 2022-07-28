@@ -38,8 +38,7 @@ function AddClosetBinForm(props) {
   };
 
 
-
-  //check inputs and send dispatch to addClosetBinSaga
+  //send the input of the selected value to a saga to be stored for later
   const setClosetBin = (event) =>{
     const closetOrBin = event.target.value;
     console.log( 'closetOrBin is set to:', closetOrBin );
@@ -47,7 +46,8 @@ function AddClosetBinForm(props) {
       type: 'CLOSET_OR_BIN', payload: {closetOrBin},
     });
   };
-
+  
+  //check inputs and send dispatch to addClosetBinSaga
   const handleCreate = (event) =>{
     // closet === null ||
     // name.length === 0

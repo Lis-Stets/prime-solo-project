@@ -44,17 +44,6 @@ function HomePage(props) {
     dispatch({ type: 'GET_BINS', payload: user.id });
   }, []);
 
-  // const details = (id) => {
-  //   history.push(`/closetBin/${id}`)
-  // }
-
-  // const tester = () => {
-  //   console.log( 'hello');
-  // }
-  
-  // const getItems = (closetBin) =>{
-  //   console.log('in getItems closetBin is:', closetBin);
-  // }
  //the return is what is displayed to the user
  return (
    <div> 
@@ -81,8 +70,6 @@ function HomePage(props) {
             {binReducer.map((bin) => {
               return(
                   <div>
-                    {/* <Link to={`/closetBin/:id`}>
-                    </Link> */}
                     <BinCard bin={bin}/>
                   </div>
               );

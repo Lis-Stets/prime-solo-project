@@ -32,6 +32,7 @@ function BinCard({bin}) {
 
   return(
     <div>
+      
       <Grid item xs={12}>
         <Link to={`/closetBin/${bin.id}`}>
           <Card variant="outlined">{card}</Card>  

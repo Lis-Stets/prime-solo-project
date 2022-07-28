@@ -9,7 +9,7 @@ const passport = require('./strategies/user.strategy');
 
 // Route includes
 const userRouter = require('./routes/user.router');
-const closetRouter = require('./routes/closet.router');
+const closetBinRouter = require('./routes/closet.bin.router');
 const binRouter = require('./routes/bin.router');
 const itemsRouter = require('./routes/items.router');
 
@@ -30,8 +30,8 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
-app.use('/api/closet', closetRouter);
-app.use('/api/bin', binRouter);
+app.use('/api/closetbin', closetBinRouter);
+// app.use('/api/bin', binRouter);
 app.use('/api/items', itemsRouter);
 
 // Serve static files
