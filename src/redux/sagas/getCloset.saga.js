@@ -4,7 +4,7 @@ import { put, takeEvery } from 'redux-saga/effects';
 // this saga will send the id of the user
 function* getCloset(action) {
   try {
-    const response = yield axios.get(`/api/closet`);
+    const response = yield axios.get(`/api/closetbin`);
     console.log( 'in GET closet saga', response.data )
     yield put({ type: 'SET_CLOSET', payload: response.data });
   } catch {

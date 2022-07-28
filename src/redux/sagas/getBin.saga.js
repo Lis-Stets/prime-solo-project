@@ -4,7 +4,7 @@ import { put, takeEvery } from 'redux-saga/effects';
 // this saga will send the id of the user
 function* getBin(action) {
   try {
-    const response = yield axios.get(`/api/bin`);
+    const response = yield axios.get(`/api/closetbin/bin`);
     console.log( 'in GET bin saga', response.data )
     yield put({ type: 'SET_BIN', payload: response.data });
   } catch {
