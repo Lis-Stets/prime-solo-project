@@ -35,6 +35,7 @@ router.get('/bin', (req, res) => {
 
 //router to get all closets and bins except the one the user is viewing
 router.get('/select/:id', (req, res) => {
+  console.log('Closetbin select GET:',req.params);
   const query = `SELECT * FROM closet_bin WHERE user_id = $1 EXCEPT SELECT * FROM closet_bin WHERE id = $2`;
   const values = [req.user.id, req.params.id]
   pool.query(query, values)
@@ -62,10 +63,10 @@ router.post('/add', (req, res) => {
     });
 })// end add closet or bin POST
 
-
+//----PutRoutes----//
 // PUT Route to update name for a closet or bin
 router.put('/:id', (req, res) => {
-  console.log(req.params);
+  console.log('Closetbin PUT:',req.params);
   const queryString = `UPDATE closet_bin SET name='Imelda' WHERE id = $1`;
   const values = [req.params];
   pool.query(queryString, values)

@@ -32,7 +32,7 @@ function* addItem(action) {
   } catch {
     console.log('Error Adding Item (Saga)');
   }
-}//end addClosetBin saga
+}//end addItem saga
 
 function* addItemSaga() {
   // yield takeEvery('CLOSET_OR_BIN', setClosetOrBin)
