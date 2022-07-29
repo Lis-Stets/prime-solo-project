@@ -5,6 +5,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import { useParams } from 'react-router-dom';
 //import components to be displayed here
 import ItemCard from '../ItemCard/ItemCard';
+import AddItemForm from '../AddItemForm/AddItemForm';
 
 
 import shortShirtIcon from '../../images/short_sleeve_shirt_icon.png';
@@ -37,6 +38,7 @@ function ClosetBinView(props) {
   useEffect(() =>{
     console.log( 'WHAT IS IT:', id);
     dispatch({ type: 'GET_ITEMS', payload: id});
+    dispatch({ type: 'SET_THIS_VIEW_ID', payload: id});
   }, []);
   
   //the return is what is displayed to the user
@@ -45,7 +47,7 @@ function ClosetBinView(props) {
         <Typography variant='h3' align='center'>name</Typography>
         <br />
         <div align="center">
-          <Button variant="contained" color="secondary" justify="center">Add Item</Button> 
+         <AddItemForm/> 
         </div>
         <br />
         <br />

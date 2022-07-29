@@ -27,7 +27,7 @@ console.log('');
 function* addItem(action) {
   try {
     console.log( 'in Add Item saga', action.payload );
-    yield axios.post( '/api/items/add/:id', action.payload );
+    yield axios.post( '/api/items/add', action.payload );
     yield put({ type: 'GET_ITEMS', payload: action.payload });
   } catch {
     console.log('Error Adding Item (Saga)');
