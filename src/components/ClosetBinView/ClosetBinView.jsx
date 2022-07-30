@@ -52,7 +52,7 @@ function ClosetBinView(props) {
         <br />
         <br />
         {/*  display the items for the user's closet or bin once they are fetched from the database  */}
-        <Grid container display={"flex"} wrap={"wrap"} justifyContent={"space-evenly"} alignContent={"center"} sx={12} spacing={5} padding={2}>
+        <Grid container display={"flex"} wrap={"wrap"} justifyContent={"space-evenly"} alignContent={"center"}  spacing={5} padding={2}>
             {itemsReducer.map((item) => {
               return(
                   <ItemCard item={item}/>

@@ -76,8 +76,6 @@ function HomePage(props) {
             })}
           </Grid>
         </div>
-      {/* )
-      } */}
    </div>
  );
 }

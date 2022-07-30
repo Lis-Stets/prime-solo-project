@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 //import redux to access the store
 import {useDispatch, useSelector} from 'react-redux';
 
@@ -12,22 +12,32 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
 
 
 function ItemCard({item}) {
   //allows us to use reducers from the store
-  const closetBinReducer = useSelector((store) => store.closetBinReducer);
+  const binReducer = useSelector((store) => store.binReducer);
+  const thisViewIdReducer = useSelector((store) => store.thisViewIdReducer);
+
+  //allows us to send dispatches
+  const dispatch = useDispatch();
   //hooks
   const [heading, setHeading] = useState('Functional Component');
   const [newLocation, setNewLocation] = useState(null);
 
-
-  const moveItem = (item) => {
-    console.log('look up pop up dialogue');
+  const moveItem = (itemID) => {
+    console.log('look up pop up dialogue', itemID);
   }
 
-  const deleteItem = (item) => {
-    console.log('delete this barn door');
+  const deleteItem = (itemID) => {
+    console.log('delete this barn door', itemID );
+    const deletePayload = {
+      itemID: itemID,
+      viewID: thisViewIdReducer
+    }
+    dispatch({ type: 'DELETE_ITEM', payload: deletePayload });
+
   }
 
   const card = (
@@ -40,23 +50,26 @@ function ItemCard({item}) {
         <Typography variant="h6" align='center'>
           {item.size}
         </Typography>
-        <Select
+        <FormControl fullWidth>
+          <Select
               labelId="where-to-move"
               id="where-to-move"
               value={''}
               // label="Closet or Bin?"
               onChange={setNewLocation}
               >
-              {/* {closetBinReducer.map((bin) => {
+              {binReducer.map((bin) => {
                 return(
-                    <div bin={bin}>
-                      <MenuItem value={bin.id}>{}bin.name</MenuItem>
-                    </div>
-                );
-              })} */}
-              <MenuItem value={'Bin'}>Bin</MenuItem>
+                  <div bin={bin}>
+                  <MenuItem value={bin.id}>{bin.name}</MenuItem>
+                  </div>
+                  );
+                })}
+              {/* <MenuItem value={'Bin'}>Bin</MenuItem> */}
             </Select>
-        <Button onClick={moveItem} variant="outlined" color='secondary'>move</Button><Button onClick={deleteItem} variant= 'outlined' color='secondary'>delete</Button>
+          </FormControl>
+        <Button onClick={() => moveItem(item.id)} variant="outlined" color='secondary'>move</Button>
+        <Button onClick={() => deleteItem(item.id)} variant= 'outlined' color='secondary'>delete</Button>
       </CardContent>
     </React.Fragment>
   );

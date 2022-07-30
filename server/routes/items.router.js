@@ -44,7 +44,7 @@ router.put('/:id', (req, res) => {
   console.log('items PUT params:',req.params);
   console.log('items PUT body:',req.body);
   const queryString = `UPDATE items SET closet_bin_id = $1 WHERE id = $2`;
-  const values = [req.body.closetBin, req.params.id];
+  const values = [req.body.closetBin, req.body.id];
   pool.query(queryString, values)
   .then(() => res.sendStatus(201))
   .catch((err) => {
@@ -57,6 +57,7 @@ router.put('/:id', (req, res) => {
 //----DeleteRoutes----//
 // DELETE Route to remove an item from a closet or bin
 router.delete('/:id', (req, res) => {
+  console.log( 'In the delete router', req.params);
   const queryString = `DELETE from items WHERE id = $1`;
   const values = [req.params.id];
   pool.query(queryString, values)
