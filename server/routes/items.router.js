@@ -24,10 +24,11 @@ router.get('/:id', (req, res) => {
 
 //----PostRoutes----//
 //POST route to add a new item to a bin
-router.post('/add/', (req, res) => {
+router.post('/', (req, res) => {
   console.log('items POST:', req.body);
-  const queryString = `INSERT INTO items ( description, size, image, closet_bin_id ) VALUES ( $1, $2, $3, $4 ) `;
-  const values = [req.body.description, req.body.size, req.body.image, req.body.id]
+  const queryString = `INSERT INTO items ( description, size, image, closet_bin_id ) VALUES ( $1, $2, $3, $4 )`;
+  const values = [req.body.description, req.body.size, req.body.image, req.body.closet_bin_id]
+  
   pool.query(queryString, values)
     .then(() => res.sendStatus(201))
     .catch((err) => {

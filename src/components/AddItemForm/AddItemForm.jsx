@@ -64,17 +64,16 @@ function AddItemForm(props) {
       description: description, 
       size: size,
       image: image,
-      id: thisViewIdReducer
+      closet_bin_id: thisViewIdReducer
     }
 
     description.length === 0 ||
     size.length === 0 ||
-    image.length === 0 ||
-    id.length === 0
+    image.length === 0 
       ? alert('Please select ../../images/short_sleeve_shirt_icon.png or bin and add a name.')
     :
     dispatch({
-        type: 'ADD_ITEM', payload: {newItem},
+        type: 'ADD_ITEM', payload: newItem,
       });
       setOpen(false);
   };
@@ -99,14 +98,15 @@ function AddItemForm(props) {
               variant="standard"
               onChange={handleChangeDescription}
             />
+          </FormControl>
             <br />
-            <InputLabel id="select-size">Select Size</InputLabel>
+          <FormControl fullWidth>
             <Select
               labelId="select-size"
               id="select-size"
               value={''}
               label="Select Size"
-              onChange={setSize}
+              onChange={handleSetSize}
               >
               <MenuItem value={'XS'}>XS</MenuItem>
               <MenuItem value={'S'}>S</MenuItem>
@@ -124,8 +124,10 @@ function AddItemForm(props) {
               <MenuItem value={'4T'}>4T</MenuItem>
               <MenuItem value={'5T'}>5T</MenuItem>
             </Select>
+          </FormControl>
             <br />
-            <Select
+          <FormControl fullWidth>
+            <Select text color='primary'
               labelId="select-image"
               id="select-image"
               value={''}

@@ -14,7 +14,6 @@ import pantsIcon from '../../images/pants_icon.png';
 import overallsIcon from '../../images/overalls_icon.png';
 import dressIcon from '../../images/dress_icon.png';
 import shortsIcon from '../../images/shorts_icon.png';
-import itemsReducer from '../../redux/reducers/items.reducer';
 
 //import MUI components from material UI
 import { colors, Grid } from '@mui/material'
@@ -28,6 +27,7 @@ import Typography from '@mui/material/Typography';
 function ClosetBinView(props) {
   //allows us to use reducers from the store
   const itemsReducer = useSelector((store) => store.itemsReducer);
+  const thisIdReducer = useSelector((store) => store.thisIdReducer);
   //allows us to send dispatches
   const dispatch = useDispatch();
 
@@ -52,7 +52,7 @@ function ClosetBinView(props) {
         <br />
         <br />
         {/*  display the items for the user's closet or bin once they are fetched from the database  */}
-        <Grid container display={"flex"} wrap={"wrap"} justifyContent={"space-evenly"} alignContent={"center"} xs= {12} spacing={5} padding={2}>
+        <Grid container display={"flex"} wrap={"wrap"} justifyContent={"space-evenly"} alignContent={"center"} sx={12} spacing={5} padding={2}>
             {itemsReducer.map((item) => {
               return(
                   <ItemCard item={item}/>
