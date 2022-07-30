@@ -18,6 +18,7 @@ import FormControl from '@mui/material/FormControl';
 function ItemCard({item}) {
   //allows us to use reducers from the store
   const binReducer = useSelector((store) => store.binReducer);
+  const closetReducer = useSelector((store) => store.closetReducer);
   const thisViewIdReducer = useSelector((store) => store.thisViewIdReducer);
 
   //allows us to send dispatches
@@ -60,11 +61,18 @@ function ItemCard({item}) {
               >
               {binReducer.map((bin) => {
                 return(
-                  <div bin={bin}>
+                  <div bin={bin} key={bin.id}>
                   <MenuItem value={bin.id}>{bin.name}</MenuItem>
                   </div>
                   );
                 })}
+              {closetReducer.map((closet) => {
+              return(
+                <div closet={closet} key={closet.id}>
+                <MenuItem value={closet.id}>{closet.name}</MenuItem>
+                </div>
+                );
+              })}
               {/* <MenuItem value={'Bin'}>Bin</MenuItem> */}
             </Select>
           </FormControl>

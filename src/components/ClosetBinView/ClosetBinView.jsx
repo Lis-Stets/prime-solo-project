@@ -55,7 +55,7 @@ function ClosetBinView(props) {
         <Grid container display={"flex"} wrap={"wrap"} justifyContent={"space-evenly"} alignContent={"center"}  spacing={5} padding={2}>
             {itemsReducer.map((item) => {
               return(
-                  <ItemCard item={item}/>
+                  <ItemCard item={item} key={item.id}/>
               );
             })}
         </Grid>  

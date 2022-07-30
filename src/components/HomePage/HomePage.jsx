@@ -59,7 +59,7 @@ function HomePage(props) {
           <Grid container display={"flex"} wrap={"wrap"} justifyContent={"space-evenly"} alignContent={"center"} spacing={5} padding={2}>
             {closetReducer.map((closet) => {
               return(
-                  <ClosetCard closet={closet}/>
+                  <ClosetCard closet={closet} key={closet.id}/>
               );
             })}
           </Grid>  
@@ -70,7 +70,7 @@ function HomePage(props) {
             {binReducer.map((bin) => {
               return(
                   <div>
-                    <BinCard bin={bin}/>
+                    <BinCard bin={bin} key={bin.id}/>
                   </div>
               );
             })}
