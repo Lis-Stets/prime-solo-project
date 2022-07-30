@@ -45,20 +45,7 @@ function AddItemForm(props) {
   const handleSetImage = (event) => {
     setImage(event.target.value);
   };
-
-
-  //send the input of the selected value to a saga to be stored for later
-  // const set../../images/short_sleeve_shirt_icon.pngBin = (event) =>{
-  //   const ../../images/short_sleeve_shirt_icon.pngOrBin = event.target.value;
-  //   console.log( '../../images/short_sleeve_shirt_icon.pngOrBin is set to:', ../../images/short_sleeve_shirt_icon.pngOrBin );
-  //   dispatch({
-  //     type: '../../images/short_sleeve_shirt_icon.png_OR_BIN', payload: {../../images/short_sleeve_shirt_icon.pngOrBin},
-  //   });
-  // };
-  
-  //check inputs and send dispatch to add../../images/short_sleeve_shirt_icon.pngBinSaga
-  
-  
+    
   const handleCreate = (event) =>{
     const newItem = {
       description: description, 
