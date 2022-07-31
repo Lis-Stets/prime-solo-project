@@ -50,5 +50,17 @@ INSERT INTO items ( description, size, image, closet_bin_id ) VALUES ( 'Overalls
 INSERT INTO items ( description, size, image, closet_bin_id ) VALUES ( 'Polkadot Dress', '4T', '../../images/dress_icon.png', 1 );
 INSERT INTO items ( description, size, image, closet_bin_id ) VALUES ( 'Pink Shorts', '4T', '../../images/shorts_icon.png', 1 );
 
---query to updat closet or bin name
+--query to update closet or bin name
 UPDATE closet_bin SET name='Imelda' WHERE id = 34;
+
+--query to select all closets and bins except the one the user is viewing
+SELECT * FROM closet_bin WHERE user_id = 4 EXCEPT SELECT * FROM closet_bin WHERE id = 1;
+
+--query to update which bin an item is in
+UPDATE items SET closet_bin_id = 4 WHERE id = 2;
+
+--query to delete and item
+DELETE from items WHERE id = 14;
+
+
+

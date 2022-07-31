@@ -25,7 +25,7 @@ function* setClosetOrBin(action) {
 function* addClosetBin(action) {
   try {
     console.log( 'in Add Closet/Bin saga', action.payload );
-    yield axios.post( '/api/closet/add', action.payload );
+    yield axios.post( '/api/closetbin/add', action.payload );
     yield put({ type: 'GET_CLOSETS' });
     yield put({ type: 'GET_BINS' });
   } catch {

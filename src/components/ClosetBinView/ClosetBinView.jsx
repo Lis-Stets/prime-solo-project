@@ -5,6 +5,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import { useParams } from 'react-router-dom';
 //import components to be displayed here
 import ItemCard from '../ItemCard/ItemCard';
+import AddItemForm from '../AddItemForm/AddItemForm';
 
 
 import shortShirtIcon from '../../images/short_sleeve_shirt_icon.png';
@@ -13,7 +14,6 @@ import pantsIcon from '../../images/pants_icon.png';
 import overallsIcon from '../../images/overalls_icon.png';
 import dressIcon from '../../images/dress_icon.png';
 import shortsIcon from '../../images/shorts_icon.png';
-import itemsReducer from '../../redux/reducers/items.reducer';
 
 //import MUI components from material UI
 import { colors, Grid } from '@mui/material'
@@ -27,16 +27,18 @@ import Typography from '@mui/material/Typography';
 function ClosetBinView(props) {
   //allows us to use reducers from the store
   const itemsReducer = useSelector((store) => store.itemsReducer);
+  const thisIdReducer = useSelector((store) => store.thisIdReducer);
   //allows us to send dispatches
   const dispatch = useDispatch();
 
   //hooks
-  const [heading, setHeading] = useState('Functional Component');
+  // const [heading, setHeading] = useState('Functional Component');
   let { id } = useParams();
 
   useEffect(() =>{
     console.log( 'WHAT IS IT:', id);
     dispatch({ type: 'GET_ITEMS', payload: id});
+    dispatch({ type: 'SET_THIS_VIEW_ID', payload: id});
   }, []);
   
   //the return is what is displayed to the user
@@ -44,16 +46,14 @@ function ClosetBinView(props) {
     <div> 
         <Typography variant='h3' align='center'>name</Typography>
         <br />
-        <div align="center">
-          <Button variant="contained" color="secondary" justify="center">Add Item</Button> 
-        </div>
+         <AddItemForm align="center"/> 
         <br />
         <br />
         {/*  display the items for the user's closet or bin once they are fetched from the database  */}
-        <Grid container display={"flex"} wrap={"wrap"} justifyContent={"space-evenly"} alignContent={"center"} xs= {12} spacing={5} padding={2}>
+        <Grid container display={"flex"} wrap={"wrap"} justifyContent={"space-evenly"} alignContent={"center"}  spacing={5} padding={2}>
             {itemsReducer.map((item) => {
               return(
-                  <ItemCard item={item}/>
+                  <ItemCard item={item} key={item.id}/>
               );
             })}
         </Grid>  
