@@ -6,8 +6,8 @@ function* moveItem(action) {
   try {
     //what will go as the req.body vs the req.params
     console.log( 'in Move Item saga', action.payload );
-    yield axios.post( '/api/items/post/:id', action.payload );
-    yield put({ type: 'GET_ITEMS', payload: action.payload.id });
+    yield axios.put( '/api/items/', action.payload );
+    yield put({ type: 'GET_ITEMS', payload: action.payload.viewID });
   } catch {
     console.log('Error Moving Item (Saga)');
   }

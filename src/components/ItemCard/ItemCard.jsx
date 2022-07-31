@@ -25,10 +25,22 @@ function ItemCard({item}) {
   const dispatch = useDispatch();
   //hooks
   const [heading, setHeading] = useState('Functional Component');
-  const [newLocation, setNewLocation] = useState(null);
+  const [newLocation, setNewLocation] = useState('');
 
+  // const handleChangeLocation = (event) => {
+  //   console.log('new location id', event.target.value);
+  //   setNewLocation(event.target.value);
+  // }
+  
   const moveItem = (itemID) => {
-    console.log('look up pop up dialogue', itemID);
+    console.log('look up pop up dialogue', itemID, newLocation);
+    const movePayload = {
+      itemID: itemID,
+      newLocation: newLocation,
+      viewID: thisViewIdReducer
+    }
+    dispatch({ type: 'MOVE_ITEM', payload: movePayload });
+
   }
 
   const deleteItem = (itemID) => {
@@ -55,25 +67,19 @@ function ItemCard({item}) {
           <Select
               labelId="where-to-move"
               id="where-to-move"
-              value={''}
-              // label="Closet or Bin?"
-              onChange={setNewLocation}
-              >
+              value={newLocation}
+              label="Select new location"
+              onChange={(event)=>setNewLocation(event.target.value)}              >
               {binReducer.map((bin) => {
                 return(
-                  <div bin={bin} key={bin.id}>
-                  <MenuItem value={bin.id}>{bin.name}</MenuItem>
-                  </div>
+                  <MenuItem bin={bin} key={bin.id} value={bin.id}>{bin.name}</MenuItem>
                   );
                 })}
               {closetReducer.map((closet) => {
-              return(
-                <div closet={closet} key={closet.id}>
-                <MenuItem value={closet.id}>{closet.name}</MenuItem>
-                </div>
-                );
+                return(
+                  <MenuItem closet={closet} key={closet.id} value={closet.id}>{closet.name}</MenuItem>
+                  );
               })}
-              {/* <MenuItem value={'Bin'}>Bin</MenuItem> */}
             </Select>
           </FormControl>
         <Button onClick={() => moveItem(item.id)} variant="outlined" color='secondary'>move</Button>

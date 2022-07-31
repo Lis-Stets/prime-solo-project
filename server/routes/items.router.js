@@ -40,18 +40,17 @@ router.post('/', (req, res) => {
 
 //----PutRoutes----//
 // PUT Route to update name for a closet or bin
-router.put('/:id', (req, res) => {
-  console.log('items PUT params:',req.params);
+router.put('/', (req, res) => {
   console.log('items PUT body:',req.body);
   const queryString = `UPDATE items SET closet_bin_id = $1 WHERE id = $2`;
-  const values = [req.body.closetBin, req.body.id];
+  const values = [req.body.newLocation, req.body.itemID];
   pool.query(queryString, values)
   .then(() => res.sendStatus(201))
   .catch((err) => {
     console.log('Error in items.router PUT route', err);
     res.sendStatus(500);
   });
-}) // end update closet bin name PUT Route
+}) // end update item location PUT Route
 
 
 //----DeleteRoutes----//
@@ -66,6 +65,6 @@ router.delete('/:id', (req, res) => {
     console.log('Error in items.router DELETE route', err);
     res.sendStatus(500);
   });
-}) // end delete closet bin name PUT Route
+}) // end delete Route
 
 module.exports = router;
