@@ -32,7 +32,7 @@ function ClosetBinView(props) {
   const dispatch = useDispatch();
 
   //hooks
-  const [heading, setHeading] = useState('Functional Component');
+  // const [heading, setHeading] = useState('Functional Component');
   let { id } = useParams();
 
   useEffect(() =>{
@@ -46,9 +46,7 @@ function ClosetBinView(props) {
     <div> 
         <Typography variant='h3' align='center'>name</Typography>
         <br />
-        <div align="center">
-         <AddItemForm/> 
-        </div>
+         <AddItemForm align="center"/> 
         <br />
         <br />
         {/*  display the items for the user's closet or bin once they are fetched from the database  */}
