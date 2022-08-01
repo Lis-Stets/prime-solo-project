@@ -20,30 +20,29 @@ import Typography from '@mui/material/Typography';
 function ClosetBinView(props) {
   //allows us to use reducers from the store
   const itemsReducer = useSelector((store) => store.itemsReducer);
-  const thisIdReducer = useSelector((store) => store.thisIdReducer);
+  const id = useSelector((store) => store.thisIdReducer);
   const nameReducer = useSelector((store) => store.nameReducer);
   //allows us to send dispatches
   const dispatch = useDispatch();
 
   //hooks
   // const [heading, setHeading] = useState('Functional Component');
-  let { id } = useParams();
+  // let { id } = useParams();
 
   useEffect(() =>{
     console.log( 'WHAT IS IT:', id);
-    dispatch({ type: 'GET_ITEMS', payload: id});
-    dispatch({ type: 'SET_THIS_VIEW_ID', payload: id});
-    dispatch({ type: 'GET_NAME', payload: id});
+    // dispatch({ type: 'GET_ITEMS', payload: id});
+    // dispatch({ type: 'SET_THIS_VIEW_ID', payload: id});
+    // dispatch({ type: 'GET_NAME', payload: id});
   }, []);
   
   //the return is what is displayed to the user
   return (
     <div>
-
-    {nameReducer.length === 0 ? 
-      (<></>) : (
-        
-        <div> 
+      {nameReducer.length === 0 ? 
+      (<p>loading...</p>) 
+      : 
+      (<div> 
           <div align='center' className='name'>
             <Typography variant='h3' >{nameReducer[0].name}</Typography>
           </div>
@@ -61,7 +60,7 @@ function ClosetBinView(props) {
           </Grid>  
         </div>
         </div>
-        )
+      )
         }
         </div>
         );

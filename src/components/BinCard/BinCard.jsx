@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 //import redux to access the store
 import {useDispatch, useSelector} from 'react-redux';
-//import Link to allow us to click the card
-import { Link } from 'react-router-dom';
+//import useHistory to be able to use history
+import { useHistory } from 'react-router-dom';
 import closetReducer from '../../redux/reducers/closet.reducer';
 
 //import MUI components from material UI
@@ -16,32 +16,41 @@ import Typography from '@mui/material/Typography';
 function BinCard({bin}) {
   //allows us to send dispatches
   const dispatch = useDispatch();
+  //call useHistorty to be able to use history
+  const history = useHistory();
   //allows us to use reducers from the store
   const store = useSelector((store) => store);
   //hooks
-  const [heading, setHeading] = useState('Functional Component');
+  const [binId, setBinId] = useState(null);
+
+  const openBin = (thisBinId) => {
+    console.log('THIS IS THIS BIN ID', thisBinId)
+    //capture the movie id in the hook
+    setBinId( thisBinId );
+    //send dispatch to set the id for this closet
+    dispatch({ type: 'SET_THIS_VIEW_ID', payload: thisBinId});
+    //send dispatch to genres saga to get genres for this movie id
+    dispatch({ type: 'GET_ITEMS', payload: thisBinId});
+    dispatch({ type: 'GET_NAME', payload: thisBinId});
+    //function to switch to closet/bin view component through hash router
+    history.push( '/closetbin' );  
+  };
 
   const card = (
     <React.Fragment>
       <CardContent>
-        <Typography variant="h6" alignContent={"center"}>
-          {bin.name}
-        </Typography>
-        <Button></Button>
+        <Button align='center' color='secondary' onClick={ () => openBin(bin.id)}>{bin.name}</Button>
       </CardContent>
     </React.Fragment>
   );
 
   return(
     <div>
-      
       <Grid item xs={12}>
-        <Link to={`/closetBin/${bin.id}`}>
           <Card variant="outlined">{card}</Card>  
-        </Link>
       </Grid> 
     </div>
-);
+  );
 }
 
 export default BinCard;

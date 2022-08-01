@@ -57,7 +57,7 @@ function AddItemForm(props) {
     description.length === 0 ||
     size.length === 0 ||
     image.length === 0 
-      ? alert('Please select ../../images/short_sleeve_shirt_icon.png or bin and add a name.')
+      ? alert('Please fill all input fields.')
     :
     dispatch({
         type: 'ADD_ITEM', payload: newItem,

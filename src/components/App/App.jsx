@@ -80,7 +80,7 @@ function App() {
           <ProtectedRoute
           // logged in shows closetBinView else shows LoginPage
             exact
-            path="/closetBin/:id"
+            path="/closetBin"
           >
             <ClosetBinView />
           </ProtectedRoute>
