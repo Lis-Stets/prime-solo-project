@@ -17,10 +17,10 @@ function AddClosetBinForm(props) {
 
   const addClosetBinReducer = useSelector((store) => store.addClosetBinReducer);
   const dispatch = useDispatch();
-
+  let box;
   //hooks hold the states for change and click events
   const [open, setOpen] = useState(false);
-  const [closet, setCloset] = useState(null);
+  const [closet, setCloset] = useState(box);
   const [name, setName] = useState('');
 
 
@@ -73,7 +73,7 @@ function AddClosetBinForm(props) {
             <Select
               labelId="closet-or-bin-label"
               id="closet-or-bin"
-              value={''}
+              value={closet}
               label="Closet or Bin?"
               onChange={setClosetBin}
               >

@@ -87,50 +87,47 @@ function AddItemForm(props) {
             />
           </FormControl>
             <br />
-          <FormControl fullWidth>
-            <Select
-              labelId="select-size"
-              id="select-size"
-              value={''}
-              label="Select Size"
-              onChange={handleSetSize}
-              >
-              <MenuItem value={'XS'}>XS</MenuItem>
-              <MenuItem value={'S'}>S</MenuItem>
-              <MenuItem value={'M'}>M</MenuItem>
-              <MenuItem value={'L'}>L</MenuItem>
-              <MenuItem value={'NB'}>NB</MenuItem>
-              <MenuItem value={'0-3m'}>0-3m</MenuItem>
-              <MenuItem value={'3-6m'}>3-6m</MenuItem>
-              <MenuItem value={'9-12m'}>9-12m</MenuItem>
-              <MenuItem value={'12m'}>12m</MenuItem>
-              <MenuItem value={'18m'}>18m</MenuItem>
-              <MenuItem value={'24m'}>24m</MenuItem>
-              <MenuItem value={'2T'}>2T</MenuItem>
-              <MenuItem value={'3T'}>3T</MenuItem>
-              <MenuItem value={'4T'}>4T</MenuItem>
-              <MenuItem value={'5T'}>5T</MenuItem>
-            </Select>
-          </FormControl>
-            <br />
-          <FormControl fullWidth>
-            <Select text color='primary'
-              labelId="select-image"
-              id="select-image"
-              value={''}
-              label="Select Image"
-              onChange={handleSetImage}
-              >
-              <MenuItem value={'../../images/short_sleeve_shirt_icon.png'}>Short Sleeve Shirt</MenuItem>
-              <MenuItem value={'../../images/shorts_icon.png'}>Shorts</MenuItem>
-              <MenuItem value={'../../images/skirt_icon.png'}>Skirt</MenuItem>
-              <MenuItem value={'../../images/pants_icon.png'}>Pants</MenuItem>
-              <MenuItem value={'../../images/overalls_icon.png'}>Overalls</MenuItem>
-              <MenuItem value={'../../images/long_sleeve_shirt_icon.png'}>Long Sleeve Shirt</MenuItem>
-              <MenuItem value={'../../images/dress_icon.png'}>Dress</MenuItem>
-              <MenuItem value={'../../images/bodysuit_icon.png'}>Bodysuit</MenuItem>
-            </Select>
-          </FormControl>
+          <Select
+            labelId="select-size"
+            id="select-size"
+            value={size}
+            label="Select Size"
+            fullWidth
+            onChange={handleSetSize}
+            >
+            <MenuItem value={'XS'}>XS</MenuItem>
+            <MenuItem value={'S'}>S</MenuItem>
+            <MenuItem value={'M'}>M</MenuItem>
+            <MenuItem value={'L'}>L</MenuItem>
+            <MenuItem value={'NB'}>NB</MenuItem>
+            <MenuItem value={'0-3m'}>0-3m</MenuItem>
+            <MenuItem value={'3-6m'}>3-6m</MenuItem>
+            <MenuItem value={'9-12m'}>9-12m</MenuItem>
+            <MenuItem value={'12m'}>12m</MenuItem>
+            <MenuItem value={'18m'}>18m</MenuItem>
+            <MenuItem value={'24m'}>24m</MenuItem>
+            <MenuItem value={'2T'}>2T</MenuItem>
+            <MenuItem value={'3T'}>3T</MenuItem>
+            <MenuItem value={'4T'}>4T</MenuItem>
+            <MenuItem value={'5T'}>5T</MenuItem>
+          </Select>
+          <br />
+          <Select text color='primary'
+            labelId="select-image"
+            id="select-image"
+            value={image}
+            label="Select Image" fullWidth
+            onChange={handleSetImage}
+            >
+            <MenuItem value={'images/short_sleeve_shirt_icon.png'}>Short Sleeve Shirt</MenuItem>
+            <MenuItem value={'images/shorts_icon.png'}>Shorts</MenuItem>
+            <MenuItem value={'images/skirt_icon.png'}>Skirt</MenuItem>
+            <MenuItem value={'images/pants_icon.png'}>Pants</MenuItem>
+            <MenuItem value={'images/overalls_icon.png'}>Overalls</MenuItem>
+            <MenuItem value={'images/long_sleeve_shirt_icon.png'}>Long Sleeve Shirt</MenuItem>
+            <MenuItem value={'images/dress_icon.png'}>Dress</MenuItem>
+            <MenuItem value={'images/bodysuit_icon.png'}>Bodysuit</MenuItem>
+          </Select>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCreate}>Create</Button>
