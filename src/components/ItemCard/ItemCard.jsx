@@ -56,7 +56,7 @@ function ItemCard({item}) {
   const card = (
     <React.Fragment>
       <CardContent>
-        <img src={item.image} alt='item image'/>
+        <img src={item.image} alt={item.id}/>
         <Typography variant="p" align='center'>
           {item.description}
         </Typography>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './ClosetBinView.css';
 import { useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 //import useParams to get id of bin to display 
@@ -6,14 +7,6 @@ import { useParams } from 'react-router-dom';
 //import components to be displayed here
 import ItemCard from '../ItemCard/ItemCard';
 import AddItemForm from '../AddItemForm/AddItemForm';
-
-
-import shortShirtIcon from '../../images/short_sleeve_shirt_icon.png';
-import skirtIcon from '../../images/skirt_icon.png';
-import pantsIcon from '../../images/pants_icon.png';
-import overallsIcon from '../../images/overalls_icon.png';
-import dressIcon from '../../images/dress_icon.png';
-import shortsIcon from '../../images/shorts_icon.png';
 
 //import MUI components from material UI
 import { colors, Grid } from '@mui/material'
@@ -28,6 +21,7 @@ function ClosetBinView(props) {
   //allows us to use reducers from the store
   const itemsReducer = useSelector((store) => store.itemsReducer);
   const thisIdReducer = useSelector((store) => store.thisIdReducer);
+  const nameReducer = useSelector((store) => store.nameReducer);
   //allows us to send dispatches
   const dispatch = useDispatch();
 
@@ -39,26 +33,38 @@ function ClosetBinView(props) {
     console.log( 'WHAT IS IT:', id);
     dispatch({ type: 'GET_ITEMS', payload: id});
     dispatch({ type: 'SET_THIS_VIEW_ID', payload: id});
+    dispatch({ type: 'GET_NAME', payload: id});
   }, []);
   
   //the return is what is displayed to the user
   return (
-    <div> 
-        <Typography variant='h3' align='center'>name</Typography>
+    <div>
+
+    {nameReducer.length === 0 ? 
+      (<></>) : (
+        
+        <div> 
+          <div align='center' className='name'>
+            <Typography variant='h3' >{nameReducer[0].name}</Typography>
+          </div>
         <br />
-         <AddItemForm align="center"/> 
         <br />
-        <br />
-        {/*  display the items for the user's closet or bin once they are fetched from the database  */}
-        <Grid container display={"flex"} wrap={"wrap"} justifyContent={"space-evenly"} alignContent={"center"}  spacing={5} padding={2}>
-            {itemsReducer.map((item) => {
-              return(
-                  <ItemCard item={item} key={item.id}/>
+        <AddItemForm align="center"/> 
+        <div className='grid' align='center'>
+          {/*  display the items for the user's closet or bin once they are fetched from the database  */}
+          <Grid container display={"flex"} wrap={"wrap"} justifyContent={"space-evenly"} alignContent={"center"}  spacing={5} padding={2}>
+          {itemsReducer.map((item) => {
+            return(
+              <ItemCard item={item} key={item.id}/>
               );
             })}
-        </Grid>  
-    </div>
-  );
+          </Grid>  
+        </div>
+        </div>
+        )
+        }
+        </div>
+        );
 }
 
 export default ClosetBinView;

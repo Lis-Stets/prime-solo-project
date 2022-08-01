@@ -1,0 +1,23 @@
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0px;
+}
+
+.username {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-bottom: 5px;
+  border-radius: 20%;
+  background-color: #5B8793;
+  color: white;
+}
+.grid {
+  padding: 90px;
+  padding-top: 90px;
+  margin-top: 90px;
+  padding-bottom: 15px;
+}
+

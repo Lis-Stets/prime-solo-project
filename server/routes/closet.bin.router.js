@@ -33,6 +33,23 @@ router.get('/bin', (req, res) => {
   })
 })//end bin GET
 
+//router that takes user id and closet/bin id to this closet or bin's name from the database
+router.get('/name/:id', (req, res) => {
+  console.log('in name router', req.params );
+  const query = `SELECT name FROM closet_bin WHERE user_id = $1 AND id = $2`;
+  const values = [req.user.id, req.params.id]
+  console.log('in name router VALUES', values );
+
+  pool.query(query, values)
+  .then( results =>{
+    res.send( results.rows);
+  })
+  .catch( err =>{
+    console.log( 'error in name GET route', err);
+    res.sendStatus(500)
+  })
+})//end bin GET
+
 //router to get all closets and bins except the one the user is viewing
 router.get('/select/:id', (req, res) => {
   console.log('Closetbin select GET:',req.params);

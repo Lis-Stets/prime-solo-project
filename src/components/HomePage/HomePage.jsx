@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './HomePage.css';
 import { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 //import useHistory to move between component pages
@@ -6,12 +7,6 @@ import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 //images imported to test
-import shortShirtIcon from '../../images/short_sleeve_shirt_icon.png';
-import skirtIcon from '../../images/skirt_icon.png';
-import pantsIcon from '../../images/pants_icon.png';
-import overallsIcon from '../../images/overalls_icon.png';
-import dressIcon from '../../images/dress_icon.png';
-import shortsIcon from '../../images/shorts_icon.png';
 import userReducer from '../../redux/reducers/user.reducer';
 import ClosetCard from '../ClosetCard/ClosetCard';
 import BinCard from '../BinCard/BinCard';
@@ -52,29 +47,33 @@ function HomePage(props) {
         <h1>loading</h1>
       ):( */}
         <div>
+          <div className='username' align="center">
           {/* display the logged in user's name */}
-          <h1 align="center"> {user.username}'s Home</h1>
-          <br />
-          {/* display the closets for the logged in user once they are fetched from the database  */}
-          <Grid container display={"flex"} wrap={"wrap"} justifyContent={"space-evenly"} alignContent={"center"} spacing={5} padding={2}>
-            {closetReducer.map((closet) => {
-              return(
+          <Typography variant='h2' >{user.username}'s Home</Typography>
+          </div>
+          <div className='grid' align='center'>
+            {/* display the closets for the logged in user once they are fetched from the database  */}
+            <Grid  container display={"flex"} wrap={"wrap"} justifyContent={"space-evenly"} alignContent={"center"} spacing={5} padding={2}>
+              {closetReducer.map((closet) => {
+                return(
                   <ClosetCard closet={closet} key={closet.id}/>
-              );
-            })}
-          </Grid>  
-          {/*  */}
-          <AddClosetBinForm/>
-          {/* display the closets for the logged in user once they are fetched from the database  */}
-          <Grid container display={"flex"} wrap={"wrap"} justifyContent={"space-evenly"} alignContent={"center"} spacing={2} padding={5}>
-            {binReducer.map((bin) => {
-              return(
+                  );
+                })}
+            </Grid>  
+            </div>
+            <AddClosetBinForm justifyContent={"center"}/>
+            <div>
+            {/* display the closets for the logged in user once they are fetched from the database  */}
+            <Grid container display={"flex"} wrap={"wrap"} justifyContent={"space-evenly"} alignContent={"center"} spacing={2} padding={5}>
+              {binReducer.map((bin) => {
+                return(
                   <div>
-                    <BinCard bin={bin} key={bin.id}/>
+                      <BinCard bin={bin} key={bin.id}/>
                   </div>
-              );
-            })}
-          </Grid>
+                );
+              })}
+            </Grid>
+            </div>
         </div>
    </div>
  );

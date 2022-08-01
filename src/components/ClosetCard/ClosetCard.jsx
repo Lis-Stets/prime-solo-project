@@ -14,6 +14,8 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 
 function ClosetCard({closet}) {
+  //allows us to send dispatches
+  const dispatch = useDispatch();
   //allows us to use reducers from the store
   const store = useSelector((store) => store);
   //hooks
