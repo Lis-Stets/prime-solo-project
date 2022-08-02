@@ -17,7 +17,7 @@ function AboutPage() {
         <br />
         <div className='description' style={{marginLeft: 45, marginRight: 45, paddingLeft: 45, paddingRight: 45 }} align="center" >
           <Typography variant='h6' className="app-description" align='center' >Your all in one kids closet and wardrobe management friend.
-             Keep track of who is wearing what clothes in which sizes, mamage hand me downs, 
+             Keep track of who is wearing what clothes in which sizes, manage hand me downs, 
              and know exactly what you have in storage for next season, all in one place!</Typography>
         </div>
         <br />
@@ -27,7 +27,7 @@ function AboutPage() {
             Technologies Used: 
           </Typography>
           <Typography variant='p'style={{}}>
-            HTML , React , CSS , Material UI, Redux, Redux-Saga, Axios, Node, Postgresql
+            HTML, JavaScript, React, CSS, Material UI, Redux, Redux-Saga, Axios, Node, Express, PostgreSQL
           </Typography>
         </div>
         <br />
@@ -43,9 +43,7 @@ function AboutPage() {
             • Join Accounts
           </Typography>
           <br />
-          <Typography variant='p'style={{}}>
-            • User Conscious Features
-          </Typography>
+          
         </div>
         <br />
         <div className='thanks' style={{marginLeft: 100, marginRight: 100, paddingLeft: 45, paddingRight: 45, paddingBottom: 25}} align="center">
@@ -53,7 +51,7 @@ function AboutPage() {
             Thank You
           </Typography>
           <Typography variant='p'style={{}}>
-            THNAK YOU SO STINKIN MUCH
+            THANK YOU SO STINKIN MUCH
           </Typography>
         </div>
       </div>
