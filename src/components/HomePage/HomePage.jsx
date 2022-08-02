@@ -65,7 +65,7 @@ function HomePage(props) {
               <br />
               <br />
             {/* display the closets for the logged in user once they are fetched from the database  */}
-            <Grid container display={"flex"} wrap={"wrap"} justifyContent={"space-evenly"} alignContent={"center"} spacing={2} padding={5}>
+            <Grid container display={"flex"} wrap={"wrap"} justifyContent={"space-around"} alignContent={"center"} spacing={2} padding={5}>
               {binReducer.map((bin) => {
                 return(
                   <div>

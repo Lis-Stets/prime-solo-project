@@ -51,7 +51,7 @@ function ClosetBinView(props) {
         <AddItemForm align="center"/> 
         <div className='grid' align='center'>
           {/*  display the items for the user's closet or bin once they are fetched from the database  */}
-          <Grid container display={"flex"} wrap={"wrap"} justifyContent={"space-evenly"} alignContent={"center"}  spacing={5} padding={2}>
+          <Grid container display={"flex"} wrap={"wrap"} justifyContent={"space-around"} alignContent={"center"}  spacing={5} padding={2}>
           {itemsReducer.map((item) => {
             return(
               <ItemCard item={item} key={item.id}/>
