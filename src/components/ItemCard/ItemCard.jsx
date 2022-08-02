@@ -13,6 +13,8 @@ import Typography from '@mui/material/Typography';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+
 
 
 function ItemCard({item}) {
@@ -57,6 +59,7 @@ function ItemCard({item}) {
     <React.Fragment>
       <CardContent>
         <img src={item.image} alt={item.id}/>
+        <br />
         <Typography variant="p" align='center'>
           {item.description}
         </Typography>
@@ -64,6 +67,7 @@ function ItemCard({item}) {
           {item.size}
         </Typography>
         <FormControl fullWidth>
+           <InputLabel id="move-item?">Move item?</InputLabel>
           <Select
               labelId="where-to-move"
               id="where-to-move"

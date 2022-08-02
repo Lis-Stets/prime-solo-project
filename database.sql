@@ -43,12 +43,12 @@ SELECT * FROM closet_bin WHERE user_id = 4 AND closet = true;
 SELECT * FROM closet_bin WHERE user_id = 4 AND closet = false;
 
 --query to add items to a bin or closet
-INSERT INTO items ( description, size, image, closet_bin_id ) VALUES ( 'Bluey Shirt', '4T', '../../images/short_sleeve_shirt_icon.png', 1 );
-INSERT INTO items ( description, size, image, closet_bin_id ) VALUES ( 'Yellow Tutu', 'S', '../../images/skirt_icon.png', 1 );
-INSERT INTO items ( description, size, image, closet_bin_id ) VALUES ( 'Flower Print Pants', '4T', '../../images/pants_icon.png', 1 );
-INSERT INTO items ( description, size, image, closet_bin_id ) VALUES ( 'Overalls', '5T', '../../images/overalls_icon.png', 1 );
-INSERT INTO items ( description, size, image, closet_bin_id ) VALUES ( 'Polkadot Dress', '4T', '../../images/dress_icon.png', 1 );
-INSERT INTO items ( description, size, image, closet_bin_id ) VALUES ( 'Pink Shorts', '4T', '../../images/shorts_icon.png', 1 );
+INSERT INTO items ( description, size, image, closet_bin_id ) VALUES ( 'Bluey Shirt', '4T', 'images/short_sleeve_shirt_icon.png', 1 );
+INSERT INTO items ( description, size, image, closet_bin_id ) VALUES ( 'Yellow Tutu', 'S', 'images/skirt_icon.png', 1 );
+INSERT INTO items ( description, size, image, closet_bin_id ) VALUES ( 'Flower Print Pants', '4T', 'images/pants_icon.png', 1 );
+INSERT INTO items ( description, size, image, closet_bin_id ) VALUES ( 'Overalls', '5T', 'images/overalls_icon.png', 1 );
+INSERT INTO items ( description, size, image, closet_bin_id ) VALUES ( 'Polkadot Dress', '4T', 'images/dress_icon.png', 1 );
+INSERT INTO items ( description, size, image, closet_bin_id ) VALUES ( 'Pink Shorts', '4T', 'images/shorts_icon.png', 1 );
 
 --query to update closet or bin name
 UPDATE closet_bin SET name='Imelda' WHERE id = 34;

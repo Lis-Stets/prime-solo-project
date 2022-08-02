@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import './HomePage.css';
 import { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-//import useHistory to move between component pages
-import { useHistory } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+
 
 //images imported to test
 import userReducer from '../../redux/reducers/user.reducer';
@@ -61,8 +59,11 @@ function HomePage(props) {
                 })}
             </Grid>  
             </div>
+            <br />
             <AddClosetBinForm justifyContent={"center"}/>
             <div>
+              <br />
+              <br />
             {/* display the closets for the logged in user once they are fetched from the database  */}
             <Grid container display={"flex"} wrap={"wrap"} justifyContent={"space-evenly"} alignContent={"center"} spacing={2} padding={5}>
               {binReducer.map((bin) => {
