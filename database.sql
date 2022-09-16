@@ -3,6 +3,9 @@
 -- You must use double quotes in every query that user is in:
 -- ex. SELECT * FROM "user";
 -- Otherwise you will have errors!
+
+
+---Queries for set up---
 Database name: roparoli
 
 --use this query to create the user table
@@ -29,6 +32,8 @@ CREATE TABLE "items" (
     "closet_bin_id" INTEGER
 );
 
+
+---other queries used in development---
 --query to add a new bin or closet
 INSERT INTO closet_bin ( closet, name, user_id ) VALUES ( true, 'Gwen', 4 );
 INSERT INTO closet_bin ( closet, name, user_id ) VALUES ( true, 'Hazel', 4 );
