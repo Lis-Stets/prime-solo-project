@@ -7,7 +7,7 @@ body,
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0px;
-  background-color: rgb(197, 248, 222);
+  background-color: #E4E3DC;
 }
 
 img {
@@ -30,10 +30,10 @@ Button
 .btn {
   display: inline-block;
   padding: 10px 20px;
-  border-color: #014041;
+  border-color: #17301C;
   border-width: 1px 1px 3px;
   border-radius: 4px;
-  background-color: #F2D360;
+  background-color: #99A49C;
   color: #000000;
   font-size: 1.1rem;
   outline: 0;
@@ -56,7 +56,7 @@ Button
 }
 
 .btn:hover {
-  background-color: #A07D93;
+  background-color: #E4E3DC;
   text-decoration: none;
 }
 
@@ -64,17 +64,17 @@ Button
 .btn_asLink {
   padding: 0;
   border-width: 0;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #000000;
   border-radius: 0;
   background: none;
   font: inherit;
-  color: #444;
+  color: #000000;
 }
 
 .btn_asLink:hover {
   background-color: transparent;
-  border-color: #5B8793;
-  color: #5B8793;
+  border-color: #554640;
+  color: #554640;
 }
 
 /* --------------------------------------------------------------------------------
@@ -102,9 +102,9 @@ Form Treatment
   max-width: 100%;
   padding: 25px;
   margin: 0 auto 20px;
-  background-color: #fdf9e8;
+  background-color: #FDF9F7;
   border-radius: 3px;
-  box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
+  box-shadow: 0 1px 2px #554640;
 }
 
 input {

@@ -33,7 +33,7 @@ const theme = createTheme({
       main: '#F2D360',
     },
     secondary: {
-      main: '#5B8793',
+      main: '#5E6973',
     },
   },
 });

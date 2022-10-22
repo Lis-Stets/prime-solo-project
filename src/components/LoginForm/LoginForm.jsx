@@ -34,7 +34,7 @@ function LoginForm() {
 
   return (
     <form className="formPanel" onSubmit={login}>
-      <Typography variant='h2' align="center">Login</Typography>
+      <Typography variant='h2' align="center">Welcome Back!</Typography>
 
       {errors.loginMessage && (
         <h3 className="alert" role="alert">
