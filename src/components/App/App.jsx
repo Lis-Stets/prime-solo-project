@@ -30,10 +30,10 @@ import { colors } from '@mui/material';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#F2D360',
+      main: '#17301C',
     },
     secondary: {
-      main: '#5E6973',
+      main: '#C7DDD8',
     },
   },
 });

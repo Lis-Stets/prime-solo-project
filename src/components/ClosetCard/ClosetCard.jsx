@@ -39,7 +39,7 @@ function ClosetCard({closet}) {
   const card = (
     <React.Fragment>
       <CardContent>
-        <Button align='center' color='secondary' onClick={ () => openCloset(closet.id)}>{closet.name}'s Closet</Button>
+        <Button align='center' color='primary' onClick={ () => openCloset(closet.id)}>{closet.name}'s Closet</Button>
       </CardContent>
     </React.Fragment>
   );

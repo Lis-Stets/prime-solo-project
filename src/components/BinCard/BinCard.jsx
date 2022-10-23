@@ -39,7 +39,7 @@ function BinCard({bin}) {
   const card = (
     <React.Fragment>
       <CardContent>
-        <Button align='center' color='secondary' onClick={ () => openBin(bin.id)}>{bin.name}</Button>
+        <Button align='center' color='primary' onClick={ () => openBin(bin.id)}>{bin.name}</Button>
       </CardContent>
     </React.Fragment>
   );
