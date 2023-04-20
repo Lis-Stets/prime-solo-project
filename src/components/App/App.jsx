@@ -18,6 +18,7 @@ import UserPage from '../UserPage/UserPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import ImagePage from "../ImagePage/ImagePage";
 
 
 import './App.css';
