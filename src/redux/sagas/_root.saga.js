@@ -2,6 +2,8 @@ import { all } from 'redux-saga/effects';
 import loginSaga from './login.saga';
 import registrationSaga from './registration.saga';
 import userSaga from './user.saga';
+import imageSaga from './image.saga';
+import databaseImageSaga from './databaseImage.saga';
 import getClosetSaga from './getCloset.saga';
 import getBinSaga from './getBin.saga';
 import addClosetBinSaga from './addClosetBin.saga';
@@ -22,6 +24,8 @@ import getNameSaga from './getName.saga';
 export default function* rootSaga() {
   yield all([
     loginSaga(), // login saga is now registered
+    databaseImageSaga(), // databaseImage saga is now registered
+    imageSaga(), //  image saga is now registered
     registrationSaga(),
     userSaga(),
     getClosetSaga(),
